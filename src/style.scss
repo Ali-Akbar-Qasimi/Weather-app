@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap');
+
+@mixin card{
+    border-radius: 10px;
+    height: 50px;
+    width: 200px;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 25px 0 rgb(255, 255, 255);
+    font-size: 12px;
+    padding-block: 20px;
+}
+
+*::before,*::after,*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    min-height: 100vh;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 50px;
+    background-image: url('./lukasz-lada-LtWFFVi1RXQ-unsplash.jpg');
+    background-size: cover;
+}
+
+span{
+  font-weight: bolder;
+  font-size: 16px;
+}
+
+.description{
+  width: 100%;
+  height: max-content;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 50px;
+  color: white;
+  letter-spacing: 3px;
+  .card{
+    @include card();
+  }
+}
+
+.top{
+  display: flex;
+  align-items: center;
+  .input-container{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    input{
+      outline: none;
+      border: none;
+      background-color: white;
+      padding: 10px 20px;
+      border: 2px solid black;
+      width: 100%;
+      height: 100%;
+      transition: width 200ms ease-in-out;
+      border-radius: 40px 0 0 40px;
+    }
+    .searchIcon-container{
+      border-radius: 0 40px 40px 0;
+      height: 100%;
+      width: 40px;
+      border: solid 2px black;
+      border-left: none;
+      background-color: white;
+      .searchIcon{
+        width: 20px;
+        height: 20px;
+        margin-left: 5px;
+        margin-top: 13px;
+      }
+    }
+  }
+  .locationIcon{
+    width: 30px;
+    height: 30px;
+  }
+}
+
+
+@keyframes spinner {
+    0% {
+      transform: translate3d(-50%, -50%, 0) rotate(0deg);
+    }
+    100% {
+      transform: translate3d(-50%, -50%, 0) rotate(360deg);
+    }
+  }
+.spinner::before {
+  content: "";
+  animation: 1.5s linear infinite spinner;
+  animation-play-state: inherit;
+  border: solid 5px #cfd0d1;
+  border-bottom-color: #1c87c9;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  will-change: transform;
+}
+
+
+@media screen and (max-width:786px){
+  body{
+    background-position: center;
+  }
+}
